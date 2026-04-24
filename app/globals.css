@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #008080;
+  --brand-primary-hover: #006d6d;
+  --brand-accent: #39ff14;
+  --bg-app: #f8f9fa;
+  --bg-surface: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-muted: #6c757d;
+  --border-hairline: #e5e7eb;
+}
+
+html, body {
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "cv11", "ss01", "ss03";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Monospaced label style per the style guide */
+.label-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* AI output marker — left edge accent per style guide */
+.ai-response-border {
+  border-left: 3px solid var(--brand-accent);
+  padding-left: 16px;
+}
+
+/* Subtle focus ring on brand color */
+.brand-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.12);
+}
+
+/* Chat scroll container: custom scrollbar that matches the palette */
+.chat-scroll::-webkit-scrollbar { width: 8px; }
+.chat-scroll::-webkit-scrollbar-track { background: transparent; }
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+.chat-scroll::-webkit-scrollbar-thumb:hover { background: #cfd4da; }
+
+/* Pulsing AI-ready dot */
+@keyframes ai-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(0.85); }
+}
+.ai-dot {
+  width: 8px; height: 8px; border-radius: 9999px;
+  background: var(--brand-accent);
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.55);
+  animation: ai-pulse 2.2s ease-in-out infinite;
+}
+
+/* Typing dots */
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30%           { transform: translateY(-4px); opacity: 1; }
+}
+.typing-dot {
+  width: 6px; height: 6px; border-radius: 9999px;
+  background: var(--text-muted);
+  animation: typing-bounce 1.2s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
