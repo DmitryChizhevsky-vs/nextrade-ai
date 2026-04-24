@@ -8,21 +8,6 @@ instant, on-brand chart in the chat window.
 Built with **Next.js 15 (App Router) + Prisma + Postgres + Anthropic Claude +
 Recharts + Tailwind**. Single-codebase, frictionless deploy to Vercel.
 
----
-
-## Why Next.js (not NestJS)?
-
-The brief asked for a React + Node/NestJS + Prisma prototype with a live
-deployed URL on a tight deadline. NestJS is a fine backend framework, but
-running it on Vercel is more friction than it's worth for an 8-hour
-prototype (serverless function packaging, cold starts, separate frontend
-host). Next.js App Router gives the same ergonomics — TypeScript, Prisma,
-Node API routes — plus zero-config Vercel deployment. If you later want to
-split backend out into NestJS, the `/lib` layer is already framework-free
-and lifts cleanly.
-
----
-
 ## What's implemented vs what's skipped
 
 ### ✅ Implemented (the actual demo requirements)
